@@ -1,0 +1,6 @@
+/* Resources */
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/Inter/fonts.css);
+
+/* Page */
+@import url(../blocks/page/page.css);
