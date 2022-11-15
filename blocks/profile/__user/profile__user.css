@@ -1,5 +1,4 @@
 .profile__user {
-  width: 100%;
   display: flex;
   align-items: center;
 }
@@ -7,6 +6,6 @@
 @media screen and (max-width: 710px) {
   .profile__user  {
     flex-direction: column;
-    margin-bottom: 36px;
+    margin-bottom: 34px;
   }
 }
