@@ -4,8 +4,14 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 1070px) {
   .header {
     padding: 0 27px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .header {
+    min-height: 56px;
   }
 }
