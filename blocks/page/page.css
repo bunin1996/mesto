@@ -4,6 +4,7 @@
   color: white;
   min-width: 320px;
   max-width: 1280px;
+  /* Ширина фрейма "MAIN PAGE" в фигме 1280px, не понимаю в чем ошибка */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
