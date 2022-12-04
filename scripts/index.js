@@ -1,8 +1,8 @@
 const popupElement = document.querySelector('.popup');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close-button');
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
-const addPopupElement = document.querySelector('.add-popup');
-const addPopupCloseButtonElement = addPopupElement.querySelector('.add-popup__close-button');
+const addPopupElement = document.querySelector('.popup_type_add-popup');
+const addPopupCloseButtonElement = addPopupElement.querySelector('.popup__close-button_type_add-popup');
 const addPopupOpenButtonElement = document.querySelector('.profile__add-button');
 // Находим форму в DOM
 let formElement = document.querySelector('.popup__content');
@@ -183,4 +183,4 @@ initialCards.forEach(function(item) {
   renderCard(item);
 });
 
-document.querySelector('.add-popup__content').addEventListener('submit', handleSubmitAddNewCard);
+document.querySelector('.popup__content_type_add-popup').addEventListener('submit', handleSubmitAddNewCard);
