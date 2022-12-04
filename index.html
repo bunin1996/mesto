@@ -26,48 +26,7 @@
       <button class="profile__add-button" type="button"></button>
     </section>
     <section class="elements content__section">
-      <div class="elements__element">
-        <img src="./images/karachaevsk.jpg" class="elements__image" alt="на фото изображено старое кирпичное здание на фоне горы">
-        <div class="elements__info">
-          <h3 class="elements__element-name">Карачаевск</h3>
-          <button class="elements__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img src="./images/elbrus.jpg" class="elements__image" alt="на фото изображен закат и холимстая местность">
-        <div class="elements__info">
-          <h3 class="elements__element-name">Гора Эльбрус</h3>
-          <button class="elements__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img src="./images/dombay.jpg" class="elements__image" alt="на фото изображены горы с снежными вершинами">
-        <div class="elements__info">
-          <h3 class="elements__element-name">Домбай</h3>
-          <button class="elements__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img src="./images/elbrus.jpg" class="elements__image" alt="на фото изображен закат и холимстая местность">
-        <div class="elements__info">
-          <h3 class="elements__element-name">Гора Эльбрус</h3>
-          <button class="elements__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img src="./images/dombay.jpg" class="elements__image" alt="на фото изображены горы с снежными вершинами">
-        <div class="elements__info">
-          <h3 class="elements__element-name">Домбай</h3>
-          <button class="elements__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img src="./images/karachaevsk.jpg" class="elements__image" alt="на фото изображено старое кирпичное здание на фоне горы">
-        <div class="elements__info">
-          <h3 class="elements__element-name">Карачаево-Чер</h3>
-          <button class="elements__like-button" type="button"></button>
-        </div>
-      </div>
+
     </section>
   </main>
   <footer class="footer">
@@ -84,6 +43,27 @@
       </form>
     </div>
   </section>
+  <section class="add-popup popup popup_type_add-popup">
+    <div class="popup__container">
+      <button class="add-popup__close-button popup__close-button popup__close-button_type_add-popup" type="button"></button>
+      <h2 class="add-popup__title popup__title popup__title_type_add-popup">Новое место</h2>
+      <form name="addPlace" class="add-popup__content popup__content popup__content_type_add-popup">
+        <input class="popup__input add-popup__input_type_name" type="text" placeholder="Название" name="place">
+        <input class="popup__input add-popup__input_type_description" type="text" placeholder="Ссылка на картинку" name="link">
+        <button class="add-popup__save-button popup__save-button" type="submit">Создать</button>
+      </form>
+    </div>
+  </section>
+  <template class="card">
+    <div class="elements__element">
+      <button class="elements__delete-button" type="button"></button>
+      <img src="" class="elements__image" alt="">
+      <div class="elements__info">
+        <h3 class="elements__element-name"></h3>
+        <button class="elements__like-button" type="button"></button>
+      </div>
+    </div>
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
