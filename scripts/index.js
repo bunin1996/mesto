@@ -4,6 +4,8 @@ const popupOpenButtonElement = document.querySelector('.profile__edit-button');
 const addPopupElement = document.querySelector('.popup_type_add-popup');
 const addPopupCloseButtonElement = addPopupElement.querySelector('.popup__close-button_type_add-popup');
 const addPopupOpenButtonElement = document.querySelector('.profile__add-button');
+const imagePopupElement = document.querySelector('.popup-image');
+const imagePopupCloseButtonElement = document.querySelector('.popup-image__close-button');
 // Находим форму в DOM
 let formElement = document.querySelector('.popup__content');
 // Находим поля формы в DOM
@@ -27,12 +29,22 @@ const openAddPopup = function() {
 
 }
 
+const openImagePopup = function() {
+  imagePopupElement.classList.add('popup_is-opened');
+
+}
+
 const closePopup = function() {
   popupElement.classList.remove('popup_is-opened');
 }
 
 const closeAddPopup = function() {
   addPopupElement.classList.remove('popup_is-opened');
+}
+
+const closeImagePopup = function() {
+  imagePopupElement.classList.remove('popup_is-opened');
+
 }
 
 function formSubmitHandler (evt) {
@@ -51,6 +63,7 @@ popupOpenButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
 addPopupOpenButtonElement.addEventListener('click', openAddPopup);
 addPopupCloseButtonElement.addEventListener('click', closeAddPopup);
+imagePopupCloseButtonElement.addEventListener('click', closeImagePopup);
 
 const initialCards = [
   {
@@ -126,6 +139,8 @@ const initialCards = [
 
 const CardnameInput = document.forms.addPlace.place;
 const CardlinkInput = document.forms.addPlace.link;
+const popupImageElement = document.querySelector('.popup-image__image');
+const popupImageSignature = document.querySelector('.popup-image__signature');
 
 // Место всех карточек
 
@@ -154,6 +169,12 @@ const generateCard = function (item) {
   const deleteButtonElement = newCard.querySelector('.elements__delete-button');
   deleteButtonElement.addEventListener('click', function() {
     deleteButtonElement.closest('.elements__element').remove()
+  });
+
+  imageCardElement.addEventListener('click', function() {
+    popupImageElement.src = imageCardElement.src
+    popupImageSignature.textContent = nameCardElement.textContent
+    openImagePopup();
   });
 
   return newCard;
