@@ -1,87 +1,102 @@
-const popupElement = document.querySelector('.popup');
+const popupEditeProfile = document.querySelector('.popup');
 
-const popupCloseButtonElement = popupElement.querySelector('.popup__close-button');
+const closeButtonPopupEditeProfile = popupEditeProfile.querySelector('.popup__close-button');
 
-const popupOpenButtonElement = document.querySelector('.profile__edit-button');
+const openButtonPopupEditeProfile = document.querySelector('.profile__edit-button');
 
-const addPopupElement = document.querySelector('.popup_type_add-popup');
 
-const addPopupCloseButtonElement = addPopupElement.querySelector('.popup__close-button_type_add-popup');
 
-const addPopupOpenButtonElement = document.querySelector('.profile__add-button');
+const popupAddCard = document.querySelector('.popup_type_add-popup');
 
-const imagePopupElement = document.querySelector('.popup-image');
+const closeButtonPopupAddCard = popupAddCard.querySelector('.popup__close-button_type_add-popup');
 
-const imagePopupCloseButtonElement = document.querySelector('.popup-image__close-button');
+const openButtonPopupAddCard = document.querySelector('.profile__add-button');
+
+
+
+const popupZoomCardImage = document.querySelector('.popup-image');
+
+const closeButtonPopupZoomCardImage = document.querySelector('.popup-image__close-button');
+
+
 
 // Находим форму в DOM
 
-const formElement = document.querySelector('.popup__content');
+const formEditeProfile = document.querySelector('.popup__content');
 
 // Находим поля формы в DOM
 
-let nameInput = formElement.querySelector('.popup__input_type_name');
+let userNameFormInput = formEditeProfile.querySelector('.popup__input_type_name');
 
-let jobInput = formElement.querySelector('.popup__input_type_description');
+let userDescriptionFormInput = formEditeProfile.querySelector('.popup__input_type_description');
 
 // Находим поля имени и описания
 
-let name = document.querySelector('.profile__name');
+let userName = document.querySelector('.profile__name');
 
-let description = document.querySelector('.profile__description');
+let userDescription = document.querySelector('.profile__description');
 
 // Присваиваем значениям полей формы содержимое полей имени
 
 
 
+
+
+
+
+
+
+
+
+
 const openPopup = function() {
-  popupElement.classList.add('popup_is-opened');
-  nameInput.value = name.textContent;
-  jobInput.value = description.textContent;
+  popupEditeProfile.classList.add('popup_is-opened');
+  userNameFormInput.value = userName.textContent;
+  userDescriptionFormInput.value = userDescription.textContent;
 }
 
 const openAddPopup = function() {
-  addPopupElement.classList.add('popup_is-opened');
+  popupAddCard.classList.add('popup_is-opened');
 
 }
 
 const openImagePopup = function() {
-  imagePopupElement.classList.add('popup_is-opened');
+  popupZoomCardImage.classList.add('popup_is-opened');
 
 }
 
 const closePopup = function() {
-  popupElement.classList.remove('popup_is-opened');
+  popupEditeProfile.classList.remove('popup_is-opened');
 }
 
 const closeAddPopup = function() {
-  addPopupElement.classList.remove('popup_is-opened');
+  popupAddCard.classList.remove('popup_is-opened');
 }
 
 const closeImagePopup = function() {
-  imagePopupElement.classList.remove('popup_is-opened');
+  popupZoomCardImage.classList.remove('popup_is-opened');
 
 }
 
-function formSubmitHandler (evt) {
+function SubmitEditeProfileForm (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  name.textContent = nameInput.value;
-  description.textContent = jobInput.value;
+  userName.textContent = userNameFormInput.value;
+  userDescription.textContent = userDescriptionFormInput.value;
   closePopup();
 }
 
 
-formElement.addEventListener('submit', formSubmitHandler);
+formEditeProfile.addEventListener('submit', SubmitEditeProfileForm);
 
-popupOpenButtonElement.addEventListener('click', openPopup);
+openButtonPopupEditeProfile.addEventListener('click', openPopup);
 
-popupCloseButtonElement.addEventListener('click', closePopup);
+closeButtonPopupEditeProfile.addEventListener('click', closePopup);
 
-addPopupOpenButtonElement.addEventListener('click', openAddPopup);
+openButtonPopupAddCard.addEventListener('click', openAddPopup);
 
-addPopupCloseButtonElement.addEventListener('click', closeAddPopup);
+closeButtonPopupAddCard.addEventListener('click', closeAddPopup);
 
-imagePopupCloseButtonElement.addEventListener('click', closeImagePopup);
+closeButtonPopupZoomCardImage.addEventListener('click', closeImagePopup);
 
 const initialCards = [
   {
@@ -117,13 +132,13 @@ const initialCards = [
 ];
 
 
-const CardnameInput = document.forms.addPlace.place;
+const cardNameFormInput = document.forms.addPlace.place;
 
-const CardlinkInput = document.forms.addPlace.link;
+const cardLinkFormInput = document.forms.addPlace.link;
 
-const popupImageElement = document.querySelector('.popup-image__image');
+const imagePopupZoomCardImage = document.querySelector('.popup-image__image');
 
-const popupImageSignature = document.querySelector('.popup-image__signature');
+const signaturePopupZoomCardImage = document.querySelector('.popup-image__signature');
 
 // Место всех карточек
 
@@ -138,26 +153,26 @@ const cardTemplate = document.querySelector('.card').content.querySelector('.ele
 const generateCard = function (item) {
   const newCard = cardTemplate.cloneNode(true);
 
-  const nameCardElement = newCard.querySelector('.elements__info').querySelector('.elements__element-name');
-  nameCardElement.textContent = item.name;
-  const imageCardElement = newCard.querySelector('.elements__image');
-  imageCardElement.src = item.link;
-  imageCardElement.alt = item.about;
+  const nameNewCard = newCard.querySelector('.elements__info').querySelector('.elements__element-name');
+  nameNewCard.textContent = item.name;
+  const imageNewCard = newCard.querySelector('.elements__image');
+  imageNewCard.src = item.link;
+  imageNewCard.alt = item.about;
 
-  const likeButtonElement = newCard.querySelector('.elements__like-button');
-  likeButtonElement.addEventListener('click', function() {
-    likeButtonElement.classList.toggle('elements__like-button_active')
+  const likeButtonNewCard = newCard.querySelector('.elements__like-button');
+  likeButtonNewCard.addEventListener('click', function() {
+    likeButtonNewCard.classList.toggle('elements__like-button_active')
   });
 
-  const deleteButtonElement = newCard.querySelector('.elements__delete-button');
-  deleteButtonElement.addEventListener('click', function() {
-    deleteButtonElement.closest('.elements__element').remove()
+  const deleteButtonNewCard = newCard.querySelector('.elements__delete-button');
+  deleteButtonNewCard.addEventListener('click', function() {
+    deleteButtonNewCard.closest('.elements__element').remove()
   });
 
-  imageCardElement.addEventListener('click', function() {
-    popupImageElement.src = imageCardElement.src
-    popupImageElement.alt = imageCardElement.alt
-    popupImageSignature.textContent = nameCardElement.textContent
+  imageNewCard.addEventListener('click', function() {
+    imagePopupZoomCardImage.src = imageNewCard.src
+    imagePopupZoomCardImage.alt = imageNewCard.alt
+    signaturePopupZoomCardImage.textContent = nameNewCard.textContent
         openImagePopup();
   });
 
@@ -167,11 +182,11 @@ const generateCard = function (item) {
 
 // Обработчик события отправки формы кнопкой создать
 
-const handleSubmitAddNewCard = function(evt) {
+const SubmitAddCardForm = function(evt) {
   evt.preventDefault();
-  renderCard({name: CardnameInput.value, link: CardlinkInput.value})
-  CardnameInput.value = '';
-  CardlinkInput.value = '';
+  renderCard({name: cardNameFormInput.value, link: cardLinkFormInput.value})
+  cardNameFormInput.value = '';
+  cardLinkFormInput.value = '';
   closeAddPopup();
 }
 
@@ -188,4 +203,6 @@ initialCards.forEach(function(item) {
   renderCard(item);
 });
 
-document.querySelector('.popup__content_type_add-popup').addEventListener('submit', handleSubmitAddNewCard);
+const formAddCard = document.querySelector('.popup__content_type_add-popup');
+
+formAddCard.addEventListener('submit', SubmitAddCardForm);
