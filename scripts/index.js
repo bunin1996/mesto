@@ -1,19 +1,35 @@
 const popupElement = document.querySelector('.popup');
+
 const popupCloseButtonElement = popupElement.querySelector('.popup__close-button');
+
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
+
 const addPopupElement = document.querySelector('.popup_type_add-popup');
+
 const addPopupCloseButtonElement = addPopupElement.querySelector('.popup__close-button_type_add-popup');
+
 const addPopupOpenButtonElement = document.querySelector('.profile__add-button');
+
 const imagePopupElement = document.querySelector('.popup-image');
+
 const imagePopupCloseButtonElement = document.querySelector('.popup-image__close-button');
+
 // Находим форму в DOM
-let formElement = document.querySelector('.popup__content');
+
+const formElement = document.querySelector('.popup__content');
+
 // Находим поля формы в DOM
+
 let nameInput = formElement.querySelector('.popup__input_type_name');
+
 let jobInput = formElement.querySelector('.popup__input_type_description');
+
 // Находим поля имени и описания
+
 let name = document.querySelector('.profile__name');
+
 let description = document.querySelector('.profile__description');
+
 // Присваиваем значениям полей формы содержимое полей имени
 
 
@@ -49,10 +65,8 @@ const closeImagePopup = function() {
 
 function formSubmitHandler (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  let nameInputValue = nameInput.value;
-  let jobInputValue = jobInput.value;
-  name.textContent = nameInputValue;
-  description.textContent = jobInputValue;
+  name.textContent = nameInput.value;
+  description.textContent = jobInput.value;
   closePopup();
 }
 
@@ -60,9 +74,13 @@ function formSubmitHandler (evt) {
 formElement.addEventListener('submit', formSubmitHandler);
 
 popupOpenButtonElement.addEventListener('click', openPopup);
+
 popupCloseButtonElement.addEventListener('click', closePopup);
+
 addPopupOpenButtonElement.addEventListener('click', openAddPopup);
+
 addPopupCloseButtonElement.addEventListener('click', closeAddPopup);
+
 imagePopupCloseButtonElement.addEventListener('click', closeImagePopup);
 
 const initialCards = [
@@ -98,48 +116,13 @@ const initialCards = [
   }
 ];
 
-// Место всех карточек
-
-//const cardCollectElement = document.querySelector('.elements');
-
-// Шаблон карточки
-
-//const cardTemplate = document.querySelector('.card').content.querySelector('.elements__element');
-
-
-// Создание карточек при загрузке страницы
-
-//initialCards.forEach(function(item) {
-//  const cardElement = cardTemplate.cloneNode(true);
-//  const nameCardElement = cardElement.querySelector('.elements__info').querySelector('.elements__element-name');
-//  nameCardElement.textContent = item.name
-//  const imageCardElement = cardElement.querySelector('.elements__image');
-//  imageCardElement.src = item.link;
-//  imageCardElement.alt = item.about;
-//  cardCollectElement.prepend(cardElement);
-//});
-
-// Создание карточки пользователем
-
-//const addNewCard = function(evt) {
-//  evt.preventDefault();
-//  const cardElement = cardTemplate.cloneNode(true);
-//  cardElement.querySelector('.elements__info').querySelector('.elements__element-name').textContent = document.forms.addPlace.place.value
-//  cardElement.querySelector('.elements__image').src = document.forms.addPlace.link.value
-//  cardCollectElement.prepend(cardElement);
-//  closeAddPopup();
-//}
-
-// Обработчик события отправки формы при создании карточки
-
-//document.querySelector('.add-popup__content').addEventListener('submit', addNewCard);
-
-
-
 
 const CardnameInput = document.forms.addPlace.place;
+
 const CardlinkInput = document.forms.addPlace.link;
+
 const popupImageElement = document.querySelector('.popup-image__image');
+
 const popupImageSignature = document.querySelector('.popup-image__signature');
 
 // Место всех карточек
@@ -173,8 +156,9 @@ const generateCard = function (item) {
 
   imageCardElement.addEventListener('click', function() {
     popupImageElement.src = imageCardElement.src
+    popupImageElement.alt = imageCardElement.alt
     popupImageSignature.textContent = nameCardElement.textContent
-    openImagePopup();
+        openImagePopup();
   });
 
   return newCard;
