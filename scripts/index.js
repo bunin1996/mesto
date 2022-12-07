@@ -1,10 +1,8 @@
-const popupEditeProfile = document.querySelector('.popup');
+const popupEditeProfile = document.querySelector('.popup_edit-profile');
 
 const closeButtonPopupEditeProfile = popupEditeProfile.querySelector('.popup__close-button');
 
 const openButtonPopupEditeProfile = document.querySelector('.profile__edit-button');
-
-
 
 const popupAddCard = document.querySelector('.popup_type_add-popup');
 
@@ -12,33 +10,27 @@ const closeButtonPopupAddCard = popupAddCard.querySelector('.popup__close-button
 
 const openButtonPopupAddCard = document.querySelector('.profile__add-button');
 
-
-
 const popupZoomCardImage = document.querySelector('.popup-image');
 
 const closeButtonPopupZoomCardImage = document.querySelector('.popup-image__close-button');
 
-
-
 // Находим форму в DOM
 
-const formEditeProfile = document.querySelector('.popup__content');
+const formEditeProfile = document.querySelector('.popup__content_type_edit-popup');
 
 // Находим поля формы в DOM
 
-let userNameFormInput = formEditeProfile.querySelector('.popup__input_type_name');
+const userNameFormInput = formEditeProfile.querySelector('.popup__input_type_name');
 
-let userDescriptionFormInput = formEditeProfile.querySelector('.popup__input_type_description');
+const userDescriptionFormInput = formEditeProfile.querySelector('.popup__input_type_description');
 
 // Находим поля имени и описания
 
-let userName = document.querySelector('.profile__name');
+const userName = document.querySelector('.profile__name');
 
-let userDescription = document.querySelector('.profile__description');
+const userDescription = document.querySelector('.profile__description');
 
 // Присваиваем значениям полей формы содержимое полей имени
-
-
 
 // Общая функция открытия попапов
 
@@ -60,38 +52,24 @@ const closePopup = function(popup) {
   popup.classList.remove('popup_is-opened');
 }
 
-
-function SubmitEditeProfileForm (evt) {
+function submitEditProfileForm (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   userName.textContent = userNameFormInput.value;
   userDescription.textContent = userDescriptionFormInput.value;
   closePopup(popupEditeProfile);
 }
 
-
-
-formEditeProfile.addEventListener('submit', SubmitEditeProfileForm);
-
-
-
+formEditeProfile.addEventListener('submit', submitEditProfileForm);
 
 openButtonPopupEditeProfile.addEventListener('click', function() {openEditProfilePopup(popupEditeProfile)});
 
 closeButtonPopupEditeProfile.addEventListener('click', function() {closePopup(popupEditeProfile)});
 
-
-
-
 openButtonPopupAddCard.addEventListener('click', function() {openPopup(popupAddCard)});
 
 closeButtonPopupAddCard.addEventListener('click', function() {closePopup(popupAddCard)});
 
-
-
-
 closeButtonPopupZoomCardImage.addEventListener('click', function() {closePopup(popupZoomCardImage)});
-
-
 
 const initialCards = [
   {
@@ -125,7 +103,6 @@ const initialCards = [
     about: 'на фото изображен гористый берег замерзщего озера Байкал'
   }
 ];
-
 
 const cardNameFormInput = document.forms.addPlace.place;
 
@@ -177,14 +154,13 @@ const generateCard = function (item) {
 
 // Обработчик события отправки формы кнопкой создать
 
-const SubmitAddCardForm = function(evt) {
+const submitAddCardForm = function(evt) {
   evt.preventDefault();
   renderCard({name: cardNameFormInput.value, link: cardLinkFormInput.value})
   cardNameFormInput.value = '';
   cardLinkFormInput.value = '';
   closePopup(popupAddCard);
 }
-
 
 // Добавление карточки
 
@@ -200,4 +176,4 @@ initialCards.forEach(function(item) {
 
 const formAddCard = document.querySelector('.popup__content_type_add-popup');
 
-formAddCard.addEventListener('submit', SubmitAddCardForm);
+formAddCard.addEventListener('submit', submitAddCardForm);
