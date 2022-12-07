@@ -40,63 +40,58 @@ let userDescription = document.querySelector('.profile__description');
 
 
 
+// Общая функция открытия попапов
 
+const openPopup = function(popup) {
+  popup.classList.add('popup_is-opened');
+}
 
+// Функция открытия попапа редактирования профиля
 
-
-
-
-
-
-
-const openPopup = function() {
-  popupEditeProfile.classList.add('popup_is-opened');
+const openEditProfilePopup = function(popup) {
+  openPopup(popup);
   userNameFormInput.value = userName.textContent;
   userDescriptionFormInput.value = userDescription.textContent;
 }
 
-const openAddPopup = function() {
-  popupAddCard.classList.add('popup_is-opened');
+// Общая функция закрытия попапов
 
+const closePopup = function(popup) {
+  popup.classList.remove('popup_is-opened');
 }
 
-const openImagePopup = function() {
-  popupZoomCardImage.classList.add('popup_is-opened');
-
-}
-
-const closePopup = function() {
-  popupEditeProfile.classList.remove('popup_is-opened');
-}
-
-const closeAddPopup = function() {
-  popupAddCard.classList.remove('popup_is-opened');
-}
-
-const closeImagePopup = function() {
-  popupZoomCardImage.classList.remove('popup_is-opened');
-
-}
 
 function SubmitEditeProfileForm (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   userName.textContent = userNameFormInput.value;
   userDescription.textContent = userDescriptionFormInput.value;
-  closePopup();
+  closePopup(popupEditeProfile);
 }
+
 
 
 formEditeProfile.addEventListener('submit', SubmitEditeProfileForm);
 
-openButtonPopupEditeProfile.addEventListener('click', openPopup);
 
-closeButtonPopupEditeProfile.addEventListener('click', closePopup);
 
-openButtonPopupAddCard.addEventListener('click', openAddPopup);
 
-closeButtonPopupAddCard.addEventListener('click', closeAddPopup);
+openButtonPopupEditeProfile.addEventListener('click', function() {openEditProfilePopup(popupEditeProfile)});
 
-closeButtonPopupZoomCardImage.addEventListener('click', closeImagePopup);
+closeButtonPopupEditeProfile.addEventListener('click', function() {closePopup(popupEditeProfile)});
+
+
+
+
+openButtonPopupAddCard.addEventListener('click', function() {openPopup(popupAddCard)});
+
+closeButtonPopupAddCard.addEventListener('click', function() {closePopup(popupAddCard)});
+
+
+
+
+closeButtonPopupZoomCardImage.addEventListener('click', function() {closePopup(popupZoomCardImage)});
+
+
 
 const initialCards = [
   {
@@ -173,7 +168,7 @@ const generateCard = function (item) {
     imagePopupZoomCardImage.src = imageNewCard.src
     imagePopupZoomCardImage.alt = imageNewCard.alt
     signaturePopupZoomCardImage.textContent = nameNewCard.textContent
-        openImagePopup();
+        openPopup(popupZoomCardImage);
   });
 
   return newCard;
@@ -187,7 +182,7 @@ const SubmitAddCardForm = function(evt) {
   renderCard({name: cardNameFormInput.value, link: cardLinkFormInput.value})
   cardNameFormInput.value = '';
   cardLinkFormInput.value = '';
-  closeAddPopup();
+  closePopup(popupAddCard);
 }
 
 
