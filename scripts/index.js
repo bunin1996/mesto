@@ -52,6 +52,15 @@ const closePopup = function(popup) {
   popup.classList.remove('popup_is-opened');
 }
 
+
+const closePopupByclickOnOverlay = function(popup) {
+  console.log (event.target, event.currentTarget);
+  if(event.target !== event.currentTarget) {
+    return;
+  }
+  closePopup(popup);
+};
+
 function submitEditProfileForm (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   userName.textContent = userNameFormInput.value;
@@ -70,6 +79,12 @@ openButtonPopupAddCard.addEventListener('click', function() {openPopup(popupAddC
 closeButtonPopupAddCard.addEventListener('click', function() {closePopup(popupAddCard)});
 
 closeButtonPopupZoomCardImage.addEventListener('click', function() {closePopup(popupZoomCardImage)});
+
+popupEditeProfile.addEventListener('click', function() {closePopupByclickOnOverlay(popupEditeProfile)});
+
+popupAddCard.addEventListener('click', function() {closePopupByclickOnOverlay(popupAddCard)});
+
+popupZoomCardImage.addEventListener('click', function() {closePopupByclickOnOverlay(popupZoomCardImage)});
 
 const initialCards = [
   {
