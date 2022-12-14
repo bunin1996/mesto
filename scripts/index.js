@@ -36,6 +36,7 @@ const userDescription = document.querySelector('.profile__description');
 
 const openPopup = function(popup) {
   popup.classList.add('popup_is-opened');
+  document.addEventListener('keyup', closePopupByclickKey)
 }
 
 // Функция открытия попапа редактирования профиля
@@ -49,16 +50,26 @@ const openEditProfilePopup = function(popup) {
 // Общая функция закрытия попапов
 
 const closePopup = function(popup) {
+  document.removeEventListener('keyup', closePopupByclickKey);
   popup.classList.remove('popup_is-opened');
 }
 
+// Функция закрытия попапа по клику на оверлей
 
 const closePopupByclickOnOverlay = function(popup) {
-  console.log (event.target, event.currentTarget);
   if(event.target !== event.currentTarget) {
     return;
   }
   closePopup(popup);
+};
+
+// Функция закрытия попапа по нажатию кнопки Escape
+
+const closePopupByclickKey = function(event) {
+  if(event.key === 'Escape') {
+    const openPopup = document.querySelector('.popup_is-opened');
+    closePopup(openPopup);
+  }
 };
 
 function submitEditProfileForm (evt) {
@@ -192,3 +203,4 @@ initialCards.forEach(function(item) {
 const formAddCard = document.querySelector('.popup__content_type_add-popup');
 
 formAddCard.addEventListener('submit', submitAddCardForm);
+
