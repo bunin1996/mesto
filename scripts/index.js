@@ -1,18 +1,18 @@
 const popupEditeProfile = document.querySelector('.popup_edit-profile');
 
-const closeButtonPopupEditeProfile = popupEditeProfile.querySelector('.popup__close-button');
+const buttonClosePopupEditeProfile = popupEditeProfile.querySelector('.popup__close-button');
 
-const openButtonPopupEditeProfile = document.querySelector('.profile__edit-button');
+const buttonOpenPopupEditeProfile = document.querySelector('.profile__edit-button');
 
 const popupAddCard = document.querySelector('.popup_type_add-popup');
 
-const closeButtonPopupAddCard = popupAddCard.querySelector('.popup__close-button_type_add-popup');
+const buttonClosePopupAddCard = popupAddCard.querySelector('.popup__close-button_type_add-popup');
 
-const openButtonPopupAddCard = document.querySelector('.profile__add-button');
+const buttonOpenPopupAddCard = document.querySelector('.profile__add-button');
 
 const popupZoomCardImage = document.querySelector('.popup-image');
 
-const closeButtonPopupZoomCardImage = document.querySelector('.popup-image__close-button');
+const buttonClosePopupZoomCardImage = document.querySelector('.popup-image__close-button');
 
 // Находим форму в DOM
 
@@ -81,15 +81,15 @@ function submitEditProfileForm (evt) {
 
 formEditeProfile.addEventListener('submit', submitEditProfileForm);
 
-openButtonPopupEditeProfile.addEventListener('click', function() {openEditProfilePopup(popupEditeProfile)});
+buttonOpenPopupEditeProfile.addEventListener('click', function() {openEditProfilePopup(popupEditeProfile)});
 
-closeButtonPopupEditeProfile.addEventListener('click', function() {closePopup(popupEditeProfile)});
+buttonClosePopupEditeProfile.addEventListener('click', function() {closePopup(popupEditeProfile)});
 
-openButtonPopupAddCard.addEventListener('click', function() {openPopup(popupAddCard)});
+buttonOpenPopupAddCard.addEventListener('click', function() {openPopup(popupAddCard)});
 
-closeButtonPopupAddCard.addEventListener('click', function() {closePopup(popupAddCard)});
+buttonClosePopupAddCard.addEventListener('click', function() {closePopup(popupAddCard)});
 
-closeButtonPopupZoomCardImage.addEventListener('click', function() {closePopup(popupZoomCardImage)});
+buttonClosePopupZoomCardImage.addEventListener('click', function() {closePopup(popupZoomCardImage)});
 
 popupEditeProfile.addEventListener('click', function() {closePopupByclickOnOverlay(popupEditeProfile)});
 
