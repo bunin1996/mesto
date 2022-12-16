@@ -13,15 +13,23 @@ const checkInputValidity = function(input, config) {
 
 };
 
+const disableSubmitButton = (button, config) => {
+    button.classList.add(config.inactiveButtonClass);
+    button.disabled = true;
+}
+
+const enableSubmitButton = (button, config) =>{
+    button.classList.remove(config.inactiveButtonClass);
+    button.disabled = false;
+}
+
 const toggleButton = function(inputs, button, config) {
     const isFormValid = inputs.every(input => input.validity.valid);
 
     if(isFormValid) {
-        button.classList.remove(config.inactiveButtonClass);
-        button.disabled = '';
+        enableSubmitButton(button, config);
     } else {
-        button.classList.add(config.inactiveButtonClass);
-        button.disabled = 'disabled';
+        disableSubmitButton(button, config);
     }
 };
 
@@ -49,11 +57,14 @@ const enableValidation = function (config) {
     })
 };
 
-enableValidation({
+const validationConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
     inactiveButtonClass: 'popup__button_disabled',
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible'
-  });
+  };
+
+  enableValidation(validationConfig);
+

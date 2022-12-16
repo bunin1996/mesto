@@ -14,6 +14,8 @@ const popupZoomCardImage = document.querySelector('.popup-image');
 
 const buttonClosePopupZoomCardImage = document.querySelector('.popup-image__close-button');
 
+const buttonCreatePopupAddCard = document.querySelector('.popup__button_add-card');
+
 // Находим форму в DOM
 
 const formEditeProfile = document.querySelector('.popup__content_type_edit-popup');
@@ -85,7 +87,7 @@ buttonOpenPopupEditeProfile.addEventListener('click', function() {openEditProfil
 
 buttonClosePopupEditeProfile.addEventListener('click', function() {closePopup(popupEditeProfile)});
 
-buttonOpenPopupAddCard.addEventListener('click', function() {openPopup(popupAddCard)});
+buttonOpenPopupAddCard.addEventListener('click', function() {disableSubmitButton(buttonCreatePopupAddCard, validationConfig); openPopup(popupAddCard);});
 
 buttonClosePopupAddCard.addEventListener('click', function() {closePopup(popupAddCard)});
 
